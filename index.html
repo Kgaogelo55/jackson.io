@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jackson.khuto</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Styles for the portfolio website */
+    body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #FFA500; /* Orange background color */
+}
+
+header {
+  background-color: #FF6600; /* Darker orange for header background */
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  animation-name: slide-down;
+  animation-duration: 1s;
+  animation-delay: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes slide-down {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+h1 {
+  margin: 0;
+}
+/*this is where i change hamburger menu*/
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #f8f8f8;
+  z-index: 9999;
+}
+
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  padding: 10px;
+  position: absolute;
+  left: 10px; /* Position the hamburger on the very far left */
+}
+
+.hamburger-line {
+  width: 30px;
+  height: 3px;
+  background-color: #333;
+  margin-bottom: 5px;
+}
+
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: -300px; /* Hide the side menu by default */
+  width: 250px;
+  height: 100%;
+  background-color: #f8f8f8;
+  padding: 20px;
+  transition: left 0.3s ease;
+}
+
+.side-menu a {
+  display: block;
+  margin-bottom: 10px;
+  color: #333;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.side-menu a:hover {
+  color: #666;
+}
+
+main {
+  max-width: 960px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+section {
+  margin-bottom: 40px;
+}
+
+.about-me {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation-name: scale-up;
+  animation-duration: 1s;
+  animation-delay: 1.5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes scale-up {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.about-me img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  margin-right: 20px;
+  animation-name: spin;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+#skills .skills {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  padding-left: 0;
+  margin-top: 0;
+}
+
+#skills .skills li {
+  background-color: #FFDAB3; /* Lighter orange for skills background */
+  color: #333;
+  padding: 10px;
+  margin: 5px;
+  list-style: none;
+  border-radius: 5px;
+  animation-name: fade-in;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+#projects {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  opacity: 0;
+  animation-name: fade-in;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#projects h2 {
+  margin-left: 0;
+}
+
+#projects .projects {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+#projects .project {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 30px;
+}
+
+#projects .project img {
+  width: 300px;
+  height: auto;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#projects .project-details {
+  text-align: left;
+  margin-top: 10px;
+  color: #FF6600; /* Darker orange for project details */
+}
+
+#projects .project-details h3 {
+  font-size: 20px;
+  margin-bottom: 5px;
+  color: #333; /* Dark text color for project titles */
+}
+
+#projects .project-details p {
+  font-size: 16px;
+  color: #888;
+}
+
+.project-container {
+  background-color: #FFF; /* Set the desired background color for the container */
+  border: 1px solid #E0E0E0; /* Set the desired border style */
+  border-radius: 5px; /* Set the desired border radius */
+  padding: 20px;
+}
+
+#contact .contact-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+#contact .contact-form label {
+  margin-bottom: 10px;
+  color: #FF6600; /* Darker orange for contact form labels */
+}
+
+#contact .contact-form input[type="text"],
+#contact .contact-form input[type="email"],
+#contact .contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  resize: vertical;
+}
+
+#contact .contact-form button[type="submit"] {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #FF6600; /* Darker orange for submit button background */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#contact .contact-form button:hover {
+  background-color: #FF9933; /* Lighter orange for submit button hover background */
+}
+
+.social-links {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.social-links a {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.social-links img {
+  width: 24px;
+  height: 24px;
+}
+
+footer {
+  background-color: #f1f1f1;
+  padding: 20px;
+  text-align: center;
+  font-size: 12px;
+}
+
+
+@media (max-width: 600px) {
+  /* Adjust the styles as needed */
+  body {
+    font-size: 14px;
+  }
+  
+  /* Example: Hide the navigation links and show them as a dropdown menu */
+  nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  nav a {
+    margin-bottom: 10px;
+  }
+}
+
+/* Styles for screens between 601px and 1024px (e.g., tablets) */
+@media (min-width: 601px) and (max-width: 1024px) {
+  /* Adjust the styles as needed */
+  body {
+    font-size: 16px;
+  }
+  
+  /* Example: Adjust the layout of the projects section */
+  #projects .projects {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+/* Styles for screens larger than 1024px (e.g., desktops) */
+@media (min-width: 1025px) {
+  /* Adjust the styles as needed */
+  body {
+    font-size: 18px;
+  }
+}
+</style>
+  </style>
+
+<script src="script.js"></script>
+ 
+</head>
+<body>
+   
+  <header>
+    <h1>JACKSON KHUTO</h1>
+  </header>
+
+  <nav>
+    <div class="hamburger">
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+    </div>
+    <div class="side-menu">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+      <a href="Profile.pdf" download="your-cv.pdf">Download CV</a>
+    </div>
+  </nav>
+
+  <main>
+    <section id="about">
+      <h2></h2>
+      <div class="about-me">
+        <div class="image-container">
+          <img src="profile2.jpg" alt="Profile Picture">
+        </div>
+        <div class="description-container">
+          <p>Hello, I'm Jackson Khuto, a final year BSc IT student specializing in Computer Science and Information Systems. With a strong passion for technology, I have acquired a solid foundation in programming languages like HTML, CSS, JavaScript, and Java. I thrive in collaborative environments and possess problem-solving skills, a logical mindset, and a drive for continuous learning. When not coding, I enjoy exploring new technologies, reading tech blogs, and engaging in outdoor activities. I'm excited to contribute to innovative projects and embark on a successful career in the technology field.</p>
+        </div>
+      </div>
+    </section>
+    <section id="skills">
+      <h2>Skills</h2>
+      <ul class="skills">
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+        <li>React</li>
+        <li>Node.js</li>
+        <li>Express.js</li>
+        <li>MongoDB</li>
+        <li>SQL</li>
+        <li>Git</li>
+      </ul>
+      <section id="projects">
+        <div class="container">
+          <h2>Projects</h2>
+          <div class="projects">
+            <div class="project">
+              <div class="project-container">
+                <div class="project-details">
+                  <h3>Library Management System</h3>
+                  <p>The Library Management System project involves creating a comprehensive software solution to manage the operations of a library. This is developed using JavaFX in Eclipse IDE. It aims to streamline the processes of book cataloging, borrowing and returning books, managing user accounts, and generating reports. The system will provide an efficient and user-friendly interface for librarians and library patrons to interact with.</p>
+                </div>
+                <a href="project1.html">
+                  <img src="project1.jpg" alt="Project 1">
+                </a>
+              </div>
+            </div>
+            <div class="project">
+              <div class="project-container">
+                <div class="project-details">
+                  <h3>Online Marketplace</h3>
+                  <p>The Online Marketplace project aims to create a web-based platform where users can buy and sell various products. It provides a marketplace for sellers to showcase their products and buyers to browse, search, and purchase items. The application facilitates secure transactions, order management, and user ratings/reviews. It will utilize the MERN stack, which consists of MongoDB, Express.js, React, and Node.js.</p>
+                </div>
+                <a href="project2.html">
+                  <img src="project2.jpg" alt="Project 2">
+                </a>
+              </div>
+            </div>
+            <div class="project">
+              <div class="project-container">
+                <div class="project-details">
+                  <h3>Recipe Sharing Application</h3>
+                  <p>The Recipe Sharing Application is a web-based platform that allows users to discover, share, and save their favorite recipes. The application provides a user-friendly interface for browsing recipes, creating and managing personal recipe collections, and interacting with a community of food enthusiasts. It aims to simplify the process of finding and organizing recipes, making it easier for users to explore new culinary creations. It will utilize the MERN stack, which consists of MongoDB, Express.js, React, and Node.js.</p>
+                </div>
+                <a href="project3.html">
+                  <img src="project3.jpg" alt="Project 3">
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+ 
+    <section id="contact">
+      <h2>Contact</h2>
+      <div class="contact">
+        <form class="contact-form">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required>
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+          <label for="message">Message:</label>
+          <textarea id="message" name="message" rows="4" required></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+    </section>
+  </main>
+ 
+  <footer>
+    <div class="social-links">
+      <a href="https://www.facebook.com/profile.php?id=100045763007241"><img src="facebook-icon.jpg" alt="Facebook"></a>
+      <a href="https://twitter.com/KhutoJackson"><img src="twitter-icon.jpg" alt="Twitter"></a>
+      <a href="https://www.linkedin.com/in/jackson-khuto-625360267/"><img src="linkedin-icon.jpg" alt="LinkedIn"></a>
+      <a href="https://github.com/jackson951/jackson.github.io"><img src="github-icon.jpg" alt="GitHub"></a>
+    </div>
+    <p>&copy; 2024 Jackson Khuto. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
