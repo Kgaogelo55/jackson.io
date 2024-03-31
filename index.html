@@ -7,16 +7,17 @@
   <link rel="stylesheet" href="styles.css">
   <style>
     /* Styles for the portfolio website */
-    body {
+/* Styles for the portfolio website */
+body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #FFA500; /* Orange background color */
+  background-color: #F7F7F7; /* Light gray background color */
 }
 
 header {
-  background-color: #FF6600; /* Darker orange for header background */
-  color: #fff;
+  background-color: #F9A825; /* Lighter orange for header background */
+  color: #FFFFFF; /* White text color */
   padding: 20px;
   text-align: center;
   animation-name: slide-down;
@@ -24,6 +25,8 @@ header {
   animation-delay: 0.5s;
   animation-fill-mode: forwards;
 }
+
+/* Add additional styles and overrides as needed */
 
 @keyframes slide-down {
   0% {
@@ -348,6 +351,31 @@ footer {
 .picture-container {
   position: relative; /* Set the picture container to relative positioning */
 }
+
+
+/*what i am working with for now*/
+
+.highlight {
+  color: #ffcc00;
+  font-style: italic;
+  font-size: 1.2em;
+}
+
+/* Additional CSS styles for layout and positioning */
+#about {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.image-container {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.description-container {
+  display: inline-block;
+  text-align: left;
+}
 </style>
   </style>
 
@@ -377,12 +405,13 @@ footer {
 
   <main>
     <section id="about">
-      <h2></h2>
+      <h2>About Me</h2>
       <div class="about-me">
         <div class="image-container">
           <img src="profile2.jpg" alt="Profile Picture">
         </div>
         <div class="description-container">
+          <p><span id="role" class="highlight">Web Developer</span>.</p>
           <p>Hello, I'm Jackson Khuto, a final year BSc IT student specializing in Computer Science and Information Systems. With a strong passion for technology, I have acquired a solid foundation in programming languages like HTML, CSS, JavaScript, and Java. I thrive in collaborative environments and possess problem-solving skills, a logical mindset, and a drive for continuous learning. When not coding, I enjoy exploring new technologies, reading tech blogs, and engaging in outdoor activities. I'm excited to contribute to innovative projects and embark on a successful career in the technology field.</p>
         </div>
       </div>
