@@ -200,41 +200,30 @@ section {
   margin-left: 0;
 }
 
-#projects .container {
+#projects .projects {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
 
-#projects .projects {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
 #projects .project {
-  flex-basis: 30%;
-  margin-bottom: 30px;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 30px;
 }
 
-#projects .project-container {
-  background-color: #FFF; /* Set the desired background color for the container */
-  border: 1px solid #E0E0E0; /* Set the desired border style */
-  border-radius: 5px; /* Set the desired border radius */
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
+#projects .project img {
+  width: 300px;
+  height: auto;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 #projects .project-details {
   text-align: left;
   margin-top: 10px;
   color: #FF6600; /* Darker orange for project details */
-  flex-grow: 1;
 }
 
 #projects .project-details h3 {
@@ -248,11 +237,11 @@ section {
   color: #888;
 }
 
-#projects .project img {
-  width: 100%;
-  height: auto;
-  border-radius: 5px;
-  cursor: pointer;
+.project-container {
+  background-color: #FFF; /* Set the desired background color for the container */
+  border: 1px solid #E0E0E0; /* Set the desired border style */
+  border-radius: 5px; /* Set the desired border radius */
+  padding: 20px;
 }
 
 #contact .contact-form {
@@ -366,45 +355,27 @@ footer {
 
 /*what i am working with for now*/
 
-#services h2 {
-  margin-left: 0;
+.highlight {
+  color: #ffcc00;
+  font-style: italic;
+  font-size: 1.2em;
 }
 
-.services {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.service {
-  flex-basis: 30%;
-  margin-bottom: 30px;
+/* Additional CSS styles for layout and positioning */
+#about {
   text-align: center;
+  margin-top: 20px;
 }
 
-.service img {
-  width: 200px;
-  height: auto;
-  border-radius: 5px;
-  margin-bottom: 10px;
+.image-container {
+  display: inline-block;
+  margin-right: 20px;
 }
 
-.service h3 {
-  font-size: 20px;
-  margin-bottom: 5px;
-  color: #333; /* Dark text color for service titles */
+.description-container {
+  display: inline-block;
+  text-align: left;
 }
-
-.service p {
-  font-size: 16px;
-  color: #888;
-}
-
-/*what i am working with now*/
-/* CSS styles for the desktop layout */
-    
-
 </style>
   </style>
 
@@ -428,7 +399,6 @@ footer {
       <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
       <a href="#contact">Contact</a>
-      <a href="#services">Services</a>
       <a href="Profile.pdf" download="your-cv.pdf">Download CV</a>
     </div>
   </nav>
@@ -441,12 +411,11 @@ footer {
           <img src="profile2.jpg" alt="Profile Picture">
         </div>
         <div class="description-container">
-          <p style="font-size: 18px; color: #FFA500;">Hello, I'm Jackson Khuto, a final year BSc IT student specializing in Computer Science and Information Systems.</p>
-          <p style="font-size: 18px; color: #FFA500;">With a strong passion for technology, I am focused on becoming a skilled software developer. My studies have provided me with a comprehensive understanding of computer science principles and information systems. I have also gained expertise in programming languages such as HTML, CSS, JavaScript,C#,python, and Java.My projects below will give you a glimpse of my work.</p>
+          <p><span id="role" class="highlight">Web Developer</span>.</p>
+          <p>Hello, I'm Jackson Khuto, a final year BSc IT student specializing in Computer Science and Information Systems. With a strong passion for technology, I have acquired a solid foundation in programming languages like HTML, CSS, JavaScript, and Java. I thrive in collaborative environments and possess problem-solving skills, a logical mindset, and a drive for continuous learning. When not coding, I enjoy exploring new technologies, reading tech blogs, and engaging in outdoor activities. I'm excited to contribute to innovative projects and embark on a successful career in the technology field.</p>
         </div>
       </div>
     </section>
-</section>
     <section id="skills">
       <h2>Skills</h2>
       <ul class="skills">
@@ -460,27 +429,6 @@ footer {
         <li>SQL</li>
         <li>Git</li>
       </ul>
-
-      <section id="services">
-        <h2>Services</h2>
-        <div class="services">
-          <div class="service">
-            <img src="services1.jpg" alt="Service 1">
-            <h3>Web Development</h3>
-            <p>I offer professional web development services, creating responsive and user-friendly websites using HTML, CSS, and JavaScript. Whether it's a static website or a dynamic web application, I can bring your vision to life.</p>
-          </div>
-          <div class="service">
-            <img src="services2.jpg" alt="Service 2">
-            <h3>Mobile App Development</h3>
-            <p>Need a mobile app for your business or idea? I specialize in mobile app development for both Android and iOS platforms. From concept to deployment, I can build customized and feature-rich mobile applications.</p>
-          </div>
-          <div class="service">
-            <img src="services3.jpg" alt="Service 3">
-            <h3>UI/UX Design</h3>
-            <p>Good design is essential for a great user experience. I can create intuitive and visually appealing user interfaces (UI) and ensure a smooth and engaging user experience (UX) for your digital products.</p>
-          </div>
-        </div>
-      </section>
       <section id="projects">
         <div class="container">
           <h2>Projects</h2>
@@ -550,4 +498,3 @@ footer {
 
 </body>
 </html>
-
